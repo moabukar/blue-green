@@ -8,7 +8,7 @@ resource "aws_instance" "blue" {
   subnet_id              = local.private_a_subnet_id
   vpc_security_group_ids = [aws_security_group.web.id]
 
-  user_data = templatefile("./init-script.sh", {
+  user_data = templatefile("./init.sh", {
     file_content = "blue version 1.2 - ${count.index}"
   })
 
